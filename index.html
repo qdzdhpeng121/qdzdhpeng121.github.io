@@ -145,6 +145,78 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/Centos7-Docker-Install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="qdzdhpeng121">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qdzdhpeng121 logs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/14/Centos7-Docker-Install/" class="post-title-link" itemprop="url">Centos7-Docker-Install</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-14 10:05:00 / 修改时间：10:07:04" itemprop="dateCreated datePublished" datetime="2021-06-14T10:05:00+08:00">2021-06-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Centos7安装docker"><a href="#Centos7安装docker" class="headerlink" title="Centos7安装docker"></a>Centos7安装docker</h2><p>//Another app is currently holding the yum lock; waiting for it to exit<br>rm -f /var/run/yum.pid</p>
+<p>yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine</p>
+<p>yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+<p>yum-config-manager –add-repo <a target="_blank" rel="noopener" href="http://download.docker.com/linux/centos/docker-ce.repo">http://download.docker.com/linux/centos/docker-ce.repo</a></p>
+<p>yum-config-manager –add-repo <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></p>
+<p>yum list docker-ce –showduplicates | sort -r</p>
+<p>yum install -y docker-ce docker-ce-cli</p>
+<p>systemctl start docker</p>
+<p>systemctl enable docker</p>
+<p>docker version</p>
+<p>mkdir -p /etc/docker</p>
+<p>sudo tee /etc/docker/daemon.json &lt;&lt;-‘EOF’<br>{<br>  “registry-mirrors”: [“<a href="https://yqre8ban.mirror.aliyuncs.com&quot;]">https://yqre8ban.mirror.aliyuncs.com&quot;]</a><br>}<br>EOF</p>
+<p>systemctl daemon-reload</p>
+<p>systemctl restart docker </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/27/Git-Log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -384,7 +456,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
