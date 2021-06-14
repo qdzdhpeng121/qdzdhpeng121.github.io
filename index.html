@@ -170,7 +170,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-06-14 14:39:00 / 修改时间：15:27:16" itemprop="dateCreated datePublished" datetime="2021-06-14T14:39:00+08:00">2021-06-14</time>
+              <time title="创建时间：2021-06-14 14:39:00 / 修改时间：18:46:00" itemprop="dateCreated datePublished" datetime="2021-06-14T14:39:00+08:00">2021-06-14</time>
             </span>
 
           
@@ -466,6 +466,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/27/Linux-JDK/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="qdzdhpeng121">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qdzdhpeng121 logs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/27/Linux-JDK/" class="post-title-link" itemprop="url">Linux中JDK安装和配置环境变量</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-27 17:56:10" itemprop="dateCreated datePublished" datetime="2021-02-27T17:56:10+08:00">2021-02-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-14 18:05:07" itemprop="dateModified" datetime="2021-06-14T18:05:07+08:00">2021-06-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="卸载自带JRE"><a href="#卸载自带JRE" class="headerlink" title="卸载自带JRE"></a>卸载自带JRE</h2><h3 id="查找相关包"><a href="#查找相关包" class="headerlink" title="查找相关包"></a>查找相关包</h3><p>rpm -qa | grep java</p>
+<h3 id="删除相关包"><a href="#删除相关包" class="headerlink" title="删除相关包"></a>删除相关包</h3><p>rpm -e –nodeps</p>
+<h2 id="Linux-环境变量设置"><a href="#Linux-环境变量设置" class="headerlink" title="Linux 环境变量设置"></a>Linux 环境变量设置</h2><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p>vi /etc/profile.d/java.sh</p>
+<h3 id="写入内容"><a href="#写入内容" class="headerlink" title="写入内容"></a>写入内容</h3><p>JAVA_HOME=/root/zulu-jdk8<br>PATH=$JAVA_HOME/bin:$PATH<br>export JAVA_HOME PATH  </p>
+<h3 id="添加权限"><a href="#添加权限" class="headerlink" title="添加权限"></a>添加权限</h3><p>chmod 755 /etc/profile.d/java.sh</p>
+<h3 id="生效"><a href="#生效" class="headerlink" title="生效"></a>生效</h3><p>source /etc/profile.d/java.sh</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/27/Git-Log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -489,10 +559,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-27 16:59:49 / 修改时间：17:06:11" itemprop="dateCreated datePublished" datetime="2021-02-27T16:59:49+08:00">2021-02-27</time>
+              <time title="创建时间：2021-02-27 16:59:49" itemprop="dateCreated datePublished" datetime="2021-02-27T16:59:49+08:00">2021-02-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-14 17:48:29" itemprop="dateModified" datetime="2021-06-14T17:48:29+08:00">2021-06-14</time>
+              </span>
 
           
 
@@ -505,7 +581,76 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h2><h3 id="将已经存在的文件夹push到github"><a href="#将已经存在的文件夹push到github" class="headerlink" title="将已经存在的文件夹push到github"></a>将已经存在的文件夹push到github</h3><p>git init<br>git add -A<br>git commit -m ‘初始提交’<br>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/qdzdhpeng121/qdzdhpeng121.git">https://github.com/qdzdhpeng121/qdzdhpeng121.git</a><br>git push -u -f origin master  </p>
+          <h2 id="git-常用命令"><a href="#git-常用命令" class="headerlink" title="git 常用命令"></a>git 常用命令</h2><h3 id="将已经存在的文件夹push到github"><a href="#将已经存在的文件夹push到github" class="headerlink" title="将已经存在的文件夹push到github"></a>将已经存在的文件夹push到github</h3><p>git init<br>git add -A<br>git commit -m ‘初始提交’<br>git branch -M dev<br>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/qdzdhpeng121/qdzdhpeng121.git">https://github.com/qdzdhpeng121/qdzdhpeng121.git</a><br>git push -u -f origin dev  </p>
+<h2 id="Git-socks5"><a href="#Git-socks5" class="headerlink" title="Git socks5"></a>Git socks5</h2><h3 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h3><p>git config –global http.proxy ‘socks5://192.168.31.187:7890’<br>git config –global https.proxy ‘socks5://192.168.31.187:7890’</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/27/Linux-Environment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="qdzdhpeng121">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qdzdhpeng121 logs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/27/Linux-Environment/" class="post-title-link" itemprop="url">Linux环境变量设置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-27 16:44:10" itemprop="dateCreated datePublished" datetime="2021-02-27T16:44:10+08:00">2021-02-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-14 16:48:56" itemprop="dateModified" datetime="2021-06-14T16:48:56+08:00">2021-06-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Linux-环境变量设置"><a href="#Linux-环境变量设置" class="headerlink" title="Linux 环境变量设置"></a>Linux 环境变量设置</h2><h3 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h3><p>vi /etc/profile.d/maven.sh</p>
+<h3 id="写入内容"><a href="#写入内容" class="headerlink" title="写入内容"></a>写入内容</h3><p>MAVEN_HOME=/root/apache-maven-3.8.1<br>PATH=$MAVEN_HOME/bin:$PATH<br>export MAVEN_HOME PATH  </p>
+<h3 id="添加权限"><a href="#添加权限" class="headerlink" title="添加权限"></a>添加权限</h3><p>chmod 755 /etc/profile.d/maven.sh</p>
+<h3 id="生效"><a href="#生效" class="headerlink" title="生效"></a>生效</h3><p>source /etc/profile.d/maven.sh</p>
 
       
     </div>
@@ -714,7 +859,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
