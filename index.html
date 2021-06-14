@@ -338,6 +338,68 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/Docker-Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="qdzdhpeng121">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qdzdhpeng121 logs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/14/Docker-Redis/" class="post-title-link" itemprop="url">Docker-Redis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-14 10:05:00 / 修改时间：14:17:46" itemprop="dateCreated datePublished" datetime="2021-06-14T10:05:00+08:00">2021-06-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Docker安装redis"><a href="#Docker安装redis" class="headerlink" title="Docker安装redis"></a>Docker安装redis</h2><p>docker pull redis<br>mkdir -p redis-mount/{conf,data}<br>wget <a target="_blank" rel="noopener" href="http://download.redis.io/redis-stable/redis.conf">http://download.redis.io/redis-stable/redis.conf</a></p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>bind 将这个注释掉，保证redis可以远程访问<br>requirepass 设置密码<br>daemonize 这个要注释掉，不然docker容器起不来<br>appendonly 用于开启AOF（Append-only file）默认是no，如果想开启，改成yes即可</p>
+<h3 id="启动redis"><a href="#启动redis" class="headerlink" title="启动redis"></a>启动redis</h3><p>docker run -d -p 6379:6379 <br>-v $PWD/conf/redis.conf:/etc/redis/redis.conf <br>-v $PWD/data:/data –name redis-server-master <br>–restart=always <br>–privileged=true <br>redis redis-server /etc/redis/redis.conf</p>
+<h3 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h3><p>docker exec -it redis-server-master redis-cli -a {密码}</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/27/Git-Log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -480,10 +542,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-02-27 15:11:10 / 修改时间：16:52:39" itemprop="dateCreated datePublished" datetime="2021-02-27T15:11:10+08:00">2021-02-27</time>
+              <time title="创建时间：2021-02-27 15:11:10" itemprop="dateCreated datePublished" datetime="2021-02-27T15:11:10+08:00">2021-02-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-14 13:16:23" itemprop="dateModified" datetime="2021-06-14T13:16:23+08:00">2021-06-14</time>
+              </span>
 
           
 
@@ -496,7 +564,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Linux-常用命令的记录"><a href="#Linux-常用命令的记录" class="headerlink" title="Linux 常用命令的记录"></a>Linux 常用命令的记录</h2>
+          <h2 id="Linux-常用命令的记录"><a href="#Linux-常用命令的记录" class="headerlink" title="Linux 常用命令的记录"></a>Linux 常用命令的记录</h2><h3 id="查看防火墙状态"><a href="#查看防火墙状态" class="headerlink" title="查看防火墙状态"></a>查看防火墙状态</h3><p>systemctl status firewalld</p>
+<h3 id="关闭防火墙"><a href="#关闭防火墙" class="headerlink" title="关闭防火墙"></a>关闭防火墙</h3><p>systemctl stop firewalld</p>
+<h3 id="设置防火墙开机不启动"><a href="#设置防火墙开机不启动" class="headerlink" title="设置防火墙开机不启动"></a>设置防火墙开机不启动</h3><p>systemctl disable firewalld</p>
+
       
     </div>
 
@@ -577,7 +648,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
