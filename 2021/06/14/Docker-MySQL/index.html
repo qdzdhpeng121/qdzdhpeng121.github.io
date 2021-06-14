@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Centos7安装docker&#x2F;&#x2F;Another app is currently holding the yum lock; waiting for it to exitrm -f &#x2F;var&#x2F;run&#x2F;yum.pid yum remove docker docker-client docker-client-latest docker-common docker-latest docker-lat">
+  <meta name="description" content="Docker安装MySQL拉去镜像docker pull mysql   运行mysql命名容器名称为mysql-service并且设置root账号初始密码为rootdocker run -d -p 3306:3306 –name mysql-service -e MYSQL_ROOT_PASSWORD&#x3D;”root”  mysql   进入Docker容器内docker exec -it mysq">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos7-Docker-Install">
-<meta property="og:url" content="http://example.com/2021/06/14/Centos7-Docker-Install/index.html">
+<meta property="og:title" content="Docker-MySQL">
+<meta property="og:url" content="http://example.com/2021/06/14/Docker-MySQL/index.html">
 <meta property="og:site_name" content="qdzdhpeng121 logs">
-<meta property="og:description" content="Centos7安装docker&#x2F;&#x2F;Another app is currently holding the yum lock; waiting for it to exitrm -f &#x2F;var&#x2F;run&#x2F;yum.pid yum remove docker docker-client docker-client-latest docker-common docker-latest docker-lat">
+<meta property="og:description" content="Docker安装MySQL拉去镜像docker pull mysql   运行mysql命名容器名称为mysql-service并且设置root账号初始密码为rootdocker run -d -p 3306:3306 –name mysql-service -e MYSQL_ROOT_PASSWORD&#x3D;”root”  mysql   进入Docker容器内docker exec -it mysq">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-14T02:05:00.000Z">
-<meta property="article:modified_time" content="2021-06-14T02:07:04.655Z">
+<meta property="article:published_time" content="2021-06-14T06:39:00.000Z">
+<meta property="article:modified_time" content="2021-06-14T07:27:16.246Z">
 <meta property="article:author" content="qdzdhpeng121">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/06/14/Centos7-Docker-Install/">
+<link rel="canonical" href="http://example.com/2021/06/14/Docker-MySQL/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Centos7-Docker-Install | qdzdhpeng121 logs</title>
+  <title>Docker-MySQL | qdzdhpeng121 logs</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/Centos7-Docker-Install/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/Docker-MySQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Centos7-Docker-Install
+          Docker-MySQL
         </h1>
 
         <div class="post-meta">
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-06-14 10:05:00 / 修改时间：10:07:04" itemprop="dateCreated datePublished" datetime="2021-06-14T10:05:00+08:00">2021-06-14</time>
+              <time title="创建时间：2021-06-14 14:39:00 / 修改时间：15:27:16" itemprop="dateCreated datePublished" datetime="2021-06-14T14:39:00+08:00">2021-06-14</time>
             </span>
 
           
@@ -188,20 +188,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Centos7安装docker"><a href="#Centos7安装docker" class="headerlink" title="Centos7安装docker"></a>Centos7安装docker</h2><p>//Another app is currently holding the yum lock; waiting for it to exit<br>rm -f /var/run/yum.pid</p>
-<p>yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine</p>
-<p>yum install -y yum-utils device-mapper-persistent-data lvm2</p>
-<p>yum-config-manager –add-repo <a target="_blank" rel="noopener" href="http://download.docker.com/linux/centos/docker-ce.repo">http://download.docker.com/linux/centos/docker-ce.repo</a></p>
-<p>yum-config-manager –add-repo <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></p>
-<p>yum list docker-ce –showduplicates | sort -r</p>
-<p>yum install -y docker-ce docker-ce-cli</p>
-<p>systemctl start docker</p>
-<p>systemctl enable docker</p>
-<p>docker version</p>
-<p>mkdir -p /etc/docker</p>
-<p>sudo tee /etc/docker/daemon.json &lt;&lt;-‘EOF’<br>{<br>  “registry-mirrors”: [“<a href="https://yqre8ban.mirror.aliyuncs.com&quot;]">https://yqre8ban.mirror.aliyuncs.com&quot;]</a><br>}<br>EOF</p>
-<p>systemctl daemon-reload</p>
-<p>systemctl restart docker </p>
+        <h2 id="Docker安装MySQL"><a href="#Docker安装MySQL" class="headerlink" title="Docker安装MySQL"></a>Docker安装MySQL</h2><h3 id="拉去镜像"><a href="#拉去镜像" class="headerlink" title="拉去镜像"></a>拉去镜像</h3><p>docker pull mysql  </p>
+<h3 id="运行mysql命名容器名称为mysql-service并且设置root账号初始密码为root"><a href="#运行mysql命名容器名称为mysql-service并且设置root账号初始密码为root" class="headerlink" title="运行mysql命名容器名称为mysql-service并且设置root账号初始密码为root"></a>运行mysql命名容器名称为mysql-service并且设置root账号初始密码为root</h3><p>docker run -d -p 3306:3306 –name mysql-service -e MYSQL_ROOT_PASSWORD=”root”  mysql  </p>
+<h3 id="进入Docker容器内"><a href="#进入Docker容器内" class="headerlink" title="进入Docker容器内"></a>进入Docker容器内</h3><p>docker exec -it mysql-service bash</p>
+<h3 id="查找Docker内，MySQL配置文件my-cnf的位置"><a href="#查找Docker内，MySQL配置文件my-cnf的位置" class="headerlink" title="查找Docker内，MySQL配置文件my.cnf的位置"></a>查找Docker内，MySQL配置文件my.cnf的位置</h3><p>mysql –help | grep my.cnf</p>
+<h3 id="创建本地文件夹"><a href="#创建本地文件夹" class="headerlink" title="创建本地文件夹"></a>创建本地文件夹</h3><p>mkdir -p /root/docker-mount/mysql-mount/conf &amp;&amp; mkdir -p /root/docker-mount/mysql-mount/data</p>
+<h3 id="将测试容器里-MySQL-的配置文件复制到该路径。日后需改配置，直接在挂载路径的配置文件上修改即可"><a href="#将测试容器里-MySQL-的配置文件复制到该路径。日后需改配置，直接在挂载路径的配置文件上修改即可" class="headerlink" title="将测试容器里 MySQL 的配置文件复制到该路径。日后需改配置，直接在挂载路径的配置文件上修改即可"></a>将测试容器里 MySQL 的配置文件复制到该路径。日后需改配置，直接在挂载路径的配置文件上修改即可</h3><p>docker cp mysql-service:/etc/mysql/my.cnf /root/docker-mount/mysql-mount/conf</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>添加到 my.cnf<br>[mysqld]<br>character-set-server=utf8<br>[client]<br>default-character-set=utf8<br>[mysql]<br>default-character-set=utf8</p>
+<h3 id="重启mysql-server容器"><a href="#重启mysql-server容器" class="headerlink" title="重启mysql-server容器"></a>重启mysql-server容器</h3><p>docker run –name MySQL-Server-Master <br>-p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 <br>–mount type=bind,src=/root/docker-mount/mysql-mount/conf/my.cnf,dst=/etc/mysql/my.cnf <br>–mount type=bind,src=/root/docker-mount/mysql-mount/data,dst=/var/lib/mysql <br>–restart=on-failure:3 <br>-d mysql</p>
 
     </div>
 
@@ -217,13 +211,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/02/27/Git-Log/" rel="prev" title="Git Log">
-      <i class="fa fa-chevron-left"></i> Git Log
+    <a href="/2021/06/14/Docker-Redis/" rel="prev" title="Docker-Redis">
+      <i class="fa fa-chevron-left"></i> Docker-Redis
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/06/14/netty/" rel="next" title="netty相关学习">
-      netty相关学习 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -282,7 +273,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Centos7%E5%AE%89%E8%A3%85docker"><span class="nav-number">1.</span> <span class="nav-text">Centos7安装docker</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E5%AE%89%E8%A3%85MySQL"><span class="nav-number">1.</span> <span class="nav-text">Docker安装MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E5%8E%BB%E9%95%9C%E5%83%8F"><span class="nav-number">1.1.</span> <span class="nav-text">拉去镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8Cmysql%E5%91%BD%E5%90%8D%E5%AE%B9%E5%99%A8%E5%90%8D%E7%A7%B0%E4%B8%BAmysql-service%E5%B9%B6%E4%B8%94%E8%AE%BE%E7%BD%AEroot%E8%B4%A6%E5%8F%B7%E5%88%9D%E5%A7%8B%E5%AF%86%E7%A0%81%E4%B8%BAroot"><span class="nav-number">1.2.</span> <span class="nav-text">运行mysql命名容器名称为mysql-service并且设置root账号初始密码为root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5Docker%E5%AE%B9%E5%99%A8%E5%86%85"><span class="nav-number">1.3.</span> <span class="nav-text">进入Docker容器内</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BEDocker%E5%86%85%EF%BC%8CMySQL%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6my-cnf%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.4.</span> <span class="nav-text">查找Docker内，MySQL配置文件my.cnf的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.5.</span> <span class="nav-text">创建本地文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%86%E6%B5%8B%E8%AF%95%E5%AE%B9%E5%99%A8%E9%87%8C-MySQL-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E8%AF%A5%E8%B7%AF%E5%BE%84%E3%80%82%E6%97%A5%E5%90%8E%E9%9C%80%E6%94%B9%E9%85%8D%E7%BD%AE%EF%BC%8C%E7%9B%B4%E6%8E%A5%E5%9C%A8%E6%8C%82%E8%BD%BD%E8%B7%AF%E5%BE%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BF%AE%E6%94%B9%E5%8D%B3%E5%8F%AF"><span class="nav-number">1.6.</span> <span class="nav-text">将测试容器里 MySQL 的配置文件复制到该路径。日后需改配置，直接在挂载路径的配置文件上修改即可</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.7.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AFmysql-server%E5%AE%B9%E5%99%A8"><span class="nav-number">1.8.</span> <span class="nav-text">重启mysql-server容器</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -145,6 +145,134 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/Docker-MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="qdzdhpeng121">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qdzdhpeng121 logs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/14/Docker-MySQL/" class="post-title-link" itemprop="url">Docker-MySQL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-14 14:39:00 / 修改时间：15:27:16" itemprop="dateCreated datePublished" datetime="2021-06-14T14:39:00+08:00">2021-06-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Docker安装MySQL"><a href="#Docker安装MySQL" class="headerlink" title="Docker安装MySQL"></a>Docker安装MySQL</h2><h3 id="拉去镜像"><a href="#拉去镜像" class="headerlink" title="拉去镜像"></a>拉去镜像</h3><p>docker pull mysql  </p>
+<h3 id="运行mysql命名容器名称为mysql-service并且设置root账号初始密码为root"><a href="#运行mysql命名容器名称为mysql-service并且设置root账号初始密码为root" class="headerlink" title="运行mysql命名容器名称为mysql-service并且设置root账号初始密码为root"></a>运行mysql命名容器名称为mysql-service并且设置root账号初始密码为root</h3><p>docker run -d -p 3306:3306 –name mysql-service -e MYSQL_ROOT_PASSWORD=”root”  mysql  </p>
+<h3 id="进入Docker容器内"><a href="#进入Docker容器内" class="headerlink" title="进入Docker容器内"></a>进入Docker容器内</h3><p>docker exec -it mysql-service bash</p>
+<h3 id="查找Docker内，MySQL配置文件my-cnf的位置"><a href="#查找Docker内，MySQL配置文件my-cnf的位置" class="headerlink" title="查找Docker内，MySQL配置文件my.cnf的位置"></a>查找Docker内，MySQL配置文件my.cnf的位置</h3><p>mysql –help | grep my.cnf</p>
+<h3 id="创建本地文件夹"><a href="#创建本地文件夹" class="headerlink" title="创建本地文件夹"></a>创建本地文件夹</h3><p>mkdir -p /root/docker-mount/mysql-mount/conf &amp;&amp; mkdir -p /root/docker-mount/mysql-mount/data</p>
+<h3 id="将测试容器里-MySQL-的配置文件复制到该路径。日后需改配置，直接在挂载路径的配置文件上修改即可"><a href="#将测试容器里-MySQL-的配置文件复制到该路径。日后需改配置，直接在挂载路径的配置文件上修改即可" class="headerlink" title="将测试容器里 MySQL 的配置文件复制到该路径。日后需改配置，直接在挂载路径的配置文件上修改即可"></a>将测试容器里 MySQL 的配置文件复制到该路径。日后需改配置，直接在挂载路径的配置文件上修改即可</h3><p>docker cp mysql-service:/etc/mysql/my.cnf /root/docker-mount/mysql-mount/conf</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>添加到 my.cnf<br>[mysqld]<br>character-set-server=utf8<br>[client]<br>default-character-set=utf8<br>[mysql]<br>default-character-set=utf8</p>
+<h3 id="重启mysql-server容器"><a href="#重启mysql-server容器" class="headerlink" title="重启mysql-server容器"></a>重启mysql-server容器</h3><p>docker run –name MySQL-Server-Master <br>-p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 <br>–mount type=bind,src=/root/docker-mount/mysql-mount/conf/my.cnf,dst=/etc/mysql/my.cnf <br>–mount type=bind,src=/root/docker-mount/mysql-mount/data,dst=/var/lib/mysql <br>–restart=on-failure:3 <br>-d mysql</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/Docker-Redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="qdzdhpeng121">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="qdzdhpeng121 logs">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/14/Docker-Redis/" class="post-title-link" itemprop="url">Docker-Redis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-14 14:25:00 / 修改时间：14:36:18" itemprop="dateCreated datePublished" datetime="2021-06-14T14:25:00+08:00">2021-06-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Docker安装redis"><a href="#Docker安装redis" class="headerlink" title="Docker安装redis"></a>Docker安装redis</h2><p>docker pull redis<br>mkdir -p redis-mount/{conf,data}<br>wget <a target="_blank" rel="noopener" href="http://download.redis.io/redis-stable/redis.conf">http://download.redis.io/redis-stable/redis.conf</a></p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>bind 将这个注释掉，保证redis可以远程访问<br>requirepass 设置密码<br>daemonize 这个要注释掉，不然docker容器起不来<br>appendonly 用于开启AOF（Append-only file）默认是no，如果想开启，改成yes即可</p>
+<h3 id="启动redis"><a href="#启动redis" class="headerlink" title="启动redis"></a>启动redis</h3><p>docker run -d -p 6379:6379 <br>-v $PWD/conf/redis.conf:/etc/redis/redis.conf <br>-v $PWD/data:/data –name redis-server-master <br>–restart=always <br>–privileged=true <br>redis redis-server /etc/redis/redis.conf</p>
+<h3 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h3><p>docker exec -it redis-server-master redis-cli -a {密码}</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/hexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -319,68 +447,6 @@
 <p>sudo tee /etc/docker/daemon.json &lt;&lt;-‘EOF’<br>{<br>  “registry-mirrors”: [“<a href="https://yqre8ban.mirror.aliyuncs.com&quot;]">https://yqre8ban.mirror.aliyuncs.com&quot;]</a><br>}<br>EOF</p>
 <p>systemctl daemon-reload</p>
 <p>systemctl restart docker </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/14/Docker-Redis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="qdzdhpeng121">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="qdzdhpeng121 logs">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/14/Docker-Redis/" class="post-title-link" itemprop="url">Docker-Redis</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-06-14 10:05:00 / 修改时间：14:17:46" itemprop="dateCreated datePublished" datetime="2021-06-14T10:05:00+08:00">2021-06-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Docker安装redis"><a href="#Docker安装redis" class="headerlink" title="Docker安装redis"></a>Docker安装redis</h2><p>docker pull redis<br>mkdir -p redis-mount/{conf,data}<br>wget <a target="_blank" rel="noopener" href="http://download.redis.io/redis-stable/redis.conf">http://download.redis.io/redis-stable/redis.conf</a></p>
-<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>bind 将这个注释掉，保证redis可以远程访问<br>requirepass 设置密码<br>daemonize 这个要注释掉，不然docker容器起不来<br>appendonly 用于开启AOF（Append-only file）默认是no，如果想开启，改成yes即可</p>
-<h3 id="启动redis"><a href="#启动redis" class="headerlink" title="启动redis"></a>启动redis</h3><p>docker run -d -p 6379:6379 <br>-v $PWD/conf/redis.conf:/etc/redis/redis.conf <br>-v $PWD/data:/data –name redis-server-master <br>–restart=always <br>–privileged=true <br>redis redis-server /etc/redis/redis.conf</p>
-<h3 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h3><p>docker exec -it redis-server-master redis-cli -a {密码}</p>
 
       
     </div>
@@ -648,7 +714,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
